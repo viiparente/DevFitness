@@ -5,6 +5,7 @@ using DevFitness.API.Models.ViewModels;
 using DevFitness.API.Persistence;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 using System.Linq;
 
 namespace DevFitness.API.Controllers
@@ -30,11 +31,14 @@ namespace DevFitness.API.Controllers
         [HttpGet]
         public IActionResult GetAll(int userId)
         {
+
             var allMeals = _dbContext.Meals
                 .Where(m => m.UserId == userId && m.Active);
             
             var allMealsViewModels = allMeals
                 .Select(m => new MealViewModel(m.Id, m.Description, m.Calories, m.Date));
+            
+            Log.Information("Método Get finalizado!");
 
             return Ok(allMealsViewModels);
         }
@@ -98,6 +102,8 @@ namespace DevFitness.API.Controllers
             meal.Update(inputModel.Description, inputModel.Calories, inputModel.Date);
             
             _dbContext.SaveChanges();
+
+            Log.Information("Método Put (Atualização de refeição) finalizado!");
 
             return NoContent();
         }
