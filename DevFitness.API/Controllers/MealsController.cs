@@ -22,6 +22,11 @@ namespace DevFitness.API.Controllers
         }
 
         //api/users/4/meals
+        /// <summary>
+        /// Todas as refeições do User
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetAll(int userId)
         {
@@ -35,6 +40,12 @@ namespace DevFitness.API.Controllers
         }
 
         //api/users/4/meals/16
+        /// <summary>
+        /// Uma refeição do User
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="mealId"></param>
+        /// <returns></returns>
         [HttpGet("{mealId}")]
         public IActionResult Get(int userId, int mealId)
         {
@@ -50,6 +61,12 @@ namespace DevFitness.API.Controllers
         }
 
         //api/users/4/meals
+        /// <summary>
+        /// Cadastro de Refeição para o User
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="inputModel"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(int userId, [FromBody] CreateMealInputModel inputModel)
         {
@@ -63,6 +80,13 @@ namespace DevFitness.API.Controllers
         }
 
         //api/users/4/meals/16 HTTP PUT
+        /// <summary>
+        /// Atualizar a refeição do User
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="mealId"></param>
+        /// <param name="inputModel"></param>
+        /// <returns></returns>
         [HttpPut("{mealId}")]
         public IActionResult Put(int userId, int mealId, [FromBody] UpdateMealInputModel inputModel)
         {
@@ -79,6 +103,12 @@ namespace DevFitness.API.Controllers
         }
 
         //api/users/4/meals/16  HTTP DELETE
+        /// <summary>
+        /// Deletar a refeição do user
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="mealId"></param>
+        /// <returns></returns>
         [HttpDelete("{mealId}")]
         public IActionResult Delete(int userId, int mealId)
         {
