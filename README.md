@@ -1,6 +1,6 @@
 ![example workflow](https://github.com/viiparente/DevFitness/actions/workflows/build.yml/badge.svg)
 
-# DevFitness Jornada .NET Direto ao Ponto
+# DevFitness 
 API REST em .NET de gerenciamento dos dados de saúde e alimentação do usuário.
 
 ### Tecnologias e práticas utilizadas
@@ -44,14 +44,15 @@ dotnet build --no-restore
 ```console
 cd .\DevFitness.API\
 ```
-* Caso tenha o SQL
+Caso tenha o SQL
 ```console
 dotnet ef migrations add InitialMigration -o Persistence/Migrations
 ```
-* Caso tenha o SQL
+Caso tenha o SQL
 ```console
 dotnet ef database update
 ```
+Finalmente rode o Projeto caso esteja no Visual Studio Code
 ```console
 dotnet run
 ```
